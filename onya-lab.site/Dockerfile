@@ -6,4 +6,4 @@ RUN mkdir -p /etc/nginx/sites-available/ \
     && ln -s /etc/nginx/sites-available/onya-lab.site.conf /etc/nginx/sites-enabled/ \
     && mkdir -p /var/www/onya-lab.site/html \
     && chmod -R 755 /var/www/onya-lab.site/html
-EXPOSE 80
+EXPOSE 8080
