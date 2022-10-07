@@ -1,0 +1,19 @@
+version: '3'
+services:
+  proxy-server:
+    build: ./nginx
+    container_name: 'ProxyContainer'
+    volumes:
+      - ./nginx/proxy.conf:/etc/nginx/conf.d/proxy.conf
+    ports:
+      - 80:80
+
+  web-server:
+    build: ./onya-lab.site
+    container_name: 'WebContainer'
+    volumes:
+      - ./onya-lab.site/nginx.conf:/etc/nginx/nginx.conf
+      - ./onya-lab.site/onya-lab.site.conf:/etc/nginx/sites-available/onya-lab.site.conf
+      - ./onya-lab.site/index.html:/var/www/onya-lab.site/html/index.html
+    ports:
+      - 8080:8080
